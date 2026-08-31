@@ -1,0 +1,33 @@
+name: APK yarat
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu al
+        uses: actions/checkout@v4
+
+      - name: JDK qur
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Gradle-i quraşdır
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: APK yarat (debug)
+        run: gradle assembleDebug
+
+      - name: APK-nı yüklə (Artifacts bölməsinə)
+        uses: actions/upload-artifact@v4
+        with:
+          name: aile-nezareti-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
