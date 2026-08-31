@@ -5,7 +5,6 @@
         <item name="colorSecondary">@color/blue</item>
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurface">@color/text</item>
-        <item name="colorBackground">@color/bg</item>
         <item name="android:fontFamily">sans</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/bg</item>
