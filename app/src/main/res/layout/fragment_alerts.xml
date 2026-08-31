@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg" android:padding="16dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bildirişlər" android:textColor="@color/text" android:textSize="24sp" android:textStyle="bold"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Hansı zənglər üçün telefona bildiriş gəlsin" android:textColor="@color/muted" android:textSize="13sp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/incomingSwitch" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Gələn"/>
+        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/outgoingSwitch" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Gedən"/>
+        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/missedSwitch" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Buraxılmış"/>
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Hadisə tarixçəsi" android:textColor="@color/text" android:textSize="17sp" android:textStyle="bold"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/alertsRecycler" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="8dp"/>
+</LinearLayout>

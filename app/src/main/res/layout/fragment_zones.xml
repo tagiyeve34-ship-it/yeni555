@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg">
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:paddingStart="20dp" android:paddingTop="14dp" android:paddingEnd="20dp" android:paddingBottom="8dp"
+        android:text="Təhlükəsiz zonalar" android:textColor="@color/text" android:textSize="22sp" android:textStyle="bold"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:paddingStart="20dp" android:paddingEnd="20dp" android:paddingBottom="10dp"
+        android:text="Xəritədə nöqtəyə toxun, radius seç və zonanı yadda saxla." android:textColor="@color/muted" android:textSize="13sp"/>
+
+    <org.osmdroid.views.MapView android:id="@+id/zoneMap" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="310dp" android:fillViewport="true" android:background="@color/white">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Zona adı (Ev, Məktəb...)" app:boxBackgroundMode="outline">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/zoneNameInput" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="10dp">
+                <TextView android:id="@+id/radiusText" android:layout_width="90dp" android:layout_height="wrap_content" android:text="200 m" android:textColor="@color/teal_dark" android:textSize="18sp" android:textStyle="bold"/>
+                <SeekBar android:id="@+id/radiusSeek" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:max="1950" android:progress="150"/>
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/notifyExitSwitch" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Zonadan çıxanda xəbər ver" android:checked="true"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/notifyEnterSwitch" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Zonaya daxil olanda xəbər ver"/>
+
+            <com.google.android.material.button.MaterialButton android:id="@+id/saveZoneButton" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="10dp" android:text="Zonanı yadda saxla" android:textAllCaps="false" app:cornerRadius="16dp"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Yadda saxlanmış zonalar" android:textColor="@color/text" android:textSize="17sp" android:textStyle="bold"/>
+            <LinearLayout android:id="@+id/zonesContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="6dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

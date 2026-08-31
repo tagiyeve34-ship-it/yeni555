@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="@color/bg">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="14dp" android:paddingBottom="28dp">
+            <TextView android:id="@+id/dateText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="12sp" android:layout_marginBottom="8dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_hero" android:padding="18dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
+                    <TextView android:id="@+id/liveStatusText" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="● Canlı" android:textColor="#64F0C1" android:textSize="15sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/currentBatteryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="—" android:textColor="#FFFFFF" android:textSize="28sp" android:textStyle="bold"/>
+                </LinearLayout>
+                <TextView android:id="@+id/deviceText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#D8E8EE" android:textSize="12sp" android:layout_marginTop="7dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Son yenilənmə" android:textColor="#92A9B6" android:textSize="10sp"/>
+                        <TextView android:id="@+id/lastUpdateText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="15sp"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GPS dəqiqliyi" android:textColor="#92A9B6" android:textSize="10sp"/>
+                        <TextView android:id="@+id/gpsAccuracyText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="15sp"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Günün intervalı" android:textColor="#92A9B6" android:textSize="10sp"/>
+                        <TextView android:id="@+id/firstLastText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="15sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bu gün" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp" android:layout_marginBottom="8dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="128dp" android:layout_weight="1" android:layout_marginEnd="5dp" android:background="@drawable/bg_metric_teal" android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Məsafə" android:textColor="@color/muted" android:textSize="11sp"/>
+                    <TextView android:id="@+id/distanceText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/teal_dark" android:textStyle="bold" android:textSize="24sp" android:layout_marginTop="8dp"/>
+                    <TextView android:id="@+id/distanceDeltaText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="10sp" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="128dp" android:layout_weight="1" android:layout_marginStart="5dp" android:background="@drawable/bg_metric_blue" android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hərəkətdə" android:textColor="@color/muted" android:textSize="11sp"/>
+                    <TextView android:id="@+id/movingText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/blue" android:textStyle="bold" android:textSize="24sp" android:layout_marginTop="8dp"/>
+                    <TextView android:id="@+id/movingDeltaText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="10sp" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="10dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="128dp" android:layout_weight="1" android:layout_marginEnd="5dp" android:background="@drawable/bg_metric_orange" android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dayanıb" android:textColor="@color/muted" android:textSize="11sp"/>
+                    <TextView android:id="@+id/stoppedText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/warning" android:textStyle="bold" android:textSize="24sp" android:layout_marginTop="8dp"/>
+                    <TextView android:id="@+id/stoppedDeltaText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="10sp" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="128dp" android:layout_weight="1" android:layout_marginStart="5dp" android:background="@drawable/bg_metric_violet" android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dayanacaq" android:textColor="@color/muted" android:textSize="11sp"/>
+                    <TextView android:id="@+id/stopsCountText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/violet" android:textStyle="bold" android:textSize="24sp" android:layout_marginTop="8dp"/>
+                    <TextView android:id="@+id/stopsDeltaText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="10sp" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="10dp" android:background="@drawable/bg_card" android:padding="14dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Orta sürət" android:textColor="@color/muted" android:textSize="10sp"/><TextView android:id="@+id/avgSpeedText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text" android:textStyle="bold" android:textSize="20sp"/><TextView android:id="@+id/maxSpeedText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="10sp"/></LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zəng sayı" android:textColor="@color/muted" android:textSize="10sp"/><TextView android:id="@+id/callsText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text" android:textStyle="bold" android:textSize="20sp"/><TextView android:id="@+id/callsDeltaText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="10sp"/></LinearLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Batareya analizi" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp" android:layout_marginBottom="8dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical"><TextView android:id="@+id/batteryTodayText" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="@color/success" android:textStyle="bold" android:textSize="30sp"/><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ENERJİ" android:textColor="@color/success" android:textStyle="bold" android:textSize="11sp"/></LinearLayout>
+                <TextView android:id="@+id/batterySummaryText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/text" android:textStyle="bold" android:textSize="14sp" android:layout_marginTop="8dp"/>
+                <TextView android:id="@+id/batteryDetailText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="12sp" android:layout_marginTop="7dp"/>
+                <TextView android:id="@+id/batteryInsightText" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_metric_teal" android:padding="10dp" android:textColor="@color/teal_dark" android:textSize="12sp" android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zəng xülasəsi" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp" android:layout_marginBottom="8dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="14dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <TextView android:id="@+id/incomingCallsText" android:layout_width="0dp" android:layout_height="72dp" android:layout_weight="1" android:gravity="center" android:background="@drawable/bg_metric_teal" android:textColor="@color/teal_dark" android:textStyle="bold"/>
+                    <TextView android:id="@+id/outgoingCallsText" android:layout_width="0dp" android:layout_height="72dp" android:layout_weight="1" android:layout_marginStart="8dp" android:gravity="center" android:background="@drawable/bg_metric_blue" android:textColor="@color/blue" android:textStyle="bold"/>
+                    <TextView android:id="@+id/missedCallsText" android:layout_width="0dp" android:layout_height="72dp" android:layout_weight="1" android:layout_marginStart="8dp" android:gravity="center" android:background="@drawable/bg_metric_orange" android:textColor="@color/warning" android:textStyle="bold"/>
+                </LinearLayout>
+                <TextView android:id="@+id/totalCallDurationText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text" android:textStyle="bold" android:textSize="14sp" android:layout_marginTop="12dp"/>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Son zənglər" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp" android:layout_marginBottom="8dp"/>
+            <LinearLayout android:id="@+id/recentCallsContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="14dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ən çox danışılanlar" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp" android:layout_marginBottom="8dp"/>
+            <LinearLayout android:id="@+id/topContactsContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="14dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dayanacaqlar" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp" android:layout_marginBottom="8dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="14dp"><TextView android:id="@+id/noStopsText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dayanacaq yoxdur" android:textColor="@color/muted" android:textSize="12sp"/><LinearLayout android:id="@+id/stopsContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/></LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ən çox qaldığı yerlər" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp" android:layout_marginBottom="8dp"/>
+            <LinearLayout android:id="@+id/placesContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="14dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bu gün / Dünən" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp" android:layout_marginBottom="8dp"/>
+            <LinearLayout android:id="@+id/comparisonContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="14dp"/>
+
+            <com.google.android.material.button.MaterialButton android:id="@+id/openMapButton" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="18dp" android:text="Xəritəni aç" android:textAllCaps="false" android:textStyle="bold" android:textSize="15sp" app:cornerRadius="18dp"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

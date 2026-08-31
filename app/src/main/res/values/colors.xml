@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================================
+         Premium tünd tema. "white" adı tarixi səbəbdən qalıb, amma
+         bütün layihə boyu YALNIZ kart/səth fonu kimi istifadə olunur
+         (mətn/ikon rəngi kimi HEÇ YERDƏ işlənmir - yoxlanılıb).
+         ============================================================ -->
+    <color name="bg">#0B0F14</color>
+    <color name="surface">#12171D</color>
+    <color name="white">#1A212A</color>
+
+    <color name="text">#ECEFF2</color>
+    <color name="muted">#8A96A3</color>
+    <color name="line">#232B34</color>
+
+    <color name="teal">#5DCAA5</color>
+    <color name="teal_dark">#3FAE8B</color>
+    <color name="teal_soft">#16302A</color>
+
+    <color name="blue">#5B8DFF</color>
+    <color name="blue_soft">#16202E</color>
+
+    <color name="violet">#A585F5</color>
+    <color name="violet_soft">#211A33</color>
+
+    <color name="warning">#EF9F27</color>
+    <color name="warning_soft">#2E2513</color>
+
+    <color name="danger">#E96570</color>
+    <color name="danger_soft">#301A1D</color>
+
+    <color name="success">#5DCAA5</color>
+    <color name="success_soft">#16302A</color>
+
+    <color name="nav_inactive">#5B6570</color>
+    <color name="navy">#F2F5F7</color>
+</resources>

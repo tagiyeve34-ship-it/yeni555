@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg">
+    <org.osmdroid.views.MapView android:id="@+id/mapView" android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+    <LinearLayout android:layout_width="52dp" android:layout_height="wrap_content" android:layout_gravity="end|top" android:layout_marginTop="14dp" android:layout_marginEnd="12dp" android:orientation="vertical">
+        <com.google.android.material.button.MaterialButton android:id="@+id/zoomInButton" android:layout_width="52dp" android:layout_height="52dp" android:minWidth="0dp" android:insetTop="0dp" android:insetBottom="0dp" android:text="+" android:textSize="25sp" android:textColor="@color/text" app:backgroundTint="@color/white" app:cornerRadius="18dp"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/zoomOutButton" android:layout_width="52dp" android:layout_height="52dp" android:layout_marginTop="7dp" android:minWidth="0dp" android:insetTop="0dp" android:insetBottom="0dp" android:text="−" android:textSize="25sp" android:textColor="@color/text" app:backgroundTint="@color/white" app:cornerRadius="18dp"/>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton android:id="@+id/recenterButton" android:layout_width="52dp" android:layout_height="52dp" android:layout_gravity="end|bottom" android:layout_marginEnd="12dp" android:layout_marginBottom="102dp" android:minWidth="0dp" android:text="" app:icon="@drawable/ic_target" app:iconPadding="0dp" app:iconSize="22dp" app:backgroundTint="@color/white" app:iconTint="@color/teal_dark" app:cornerRadius="18dp"/>
+
+    <LinearLayout android:id="@+id/bottomSheet" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_bottom_sheet" android:elevation="18dp" android:paddingStart="16dp" android:paddingTop="7dp" android:paddingEnd="16dp" android:paddingBottom="14dp" app:behavior_hideable="false" app:behavior_peekHeight="82dp" app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+        <View android:id="@+id/dragHandle" android:layout_width="46dp" android:layout_height="5dp" android:layout_gravity="center_horizontal" android:background="@drawable/bg_drag_handle" android:layout_marginBottom="7dp"/>
+        <androidx.cardview.widget.CardView android:id="@+id/locationCard" android:layout_width="match_parent" android:layout_height="62dp" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="0dp" app:cardElevation="0dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:id="@+id/titleText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Son mövqe" android:textColor="@color/text" android:textStyle="bold" android:textSize="18sp"/>
+                    <TextView android:id="@+id/timeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="11sp" android:layout_marginTop="2dp"/>
+                </LinearLayout>
+                <TextView android:id="@+id/batteryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_metric_teal" android:paddingStart="11dp" android:paddingTop="6dp" android:paddingEnd="11dp" android:paddingBottom="6dp" android:textColor="@color/teal_dark" android:textStyle="bold" android:textSize="13sp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView android:id="@+id/accuracyText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/muted" android:textSize="12sp"/>
+        <TextView android:id="@+id/detailText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/teal_dark" android:textStyle="bold" android:textSize="12sp" android:visibility="gone" android:layout_marginTop="3dp"/>
+        <TextView android:id="@+id/routeSummaryText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="@drawable/bg_metric_blue" android:padding="10dp" android:textColor="@color/text" android:textStyle="bold" android:textSize="12sp" android:visibility="gone"/>
+        <HorizontalScrollView android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="10dp" android:scrollbars="none">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:orientation="horizontal" android:gravity="center_vertical">
+                <com.google.android.material.button.MaterialButton android:id="@+id/historyButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="wrap_content" android:layout_height="42dp" android:text="Keçmiş" android:textAllCaps="false" app:cornerRadius="14dp" app:icon="@drawable/ic_history" app:iconSize="17dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/gpsPointsButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginStart="7dp" android:text="GPS 24s" android:textAllCaps="false" app:cornerRadius="14dp" app:icon="@drawable/ic_target" app:iconSize="17dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/myLocationButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="wrap_content" android:layout_height="42dp" android:layout_marginStart="7dp" android:text="Mən + Obyekt" android:textAllCaps="false" app:cornerRadius="14dp" app:icon="@drawable/ic_my_location" app:iconSize="17dp"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:orientation="horizontal" android:layout_marginTop="5dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/standardMapButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1" android:text="Standart" android:textAllCaps="false" app:cornerRadius="14dp"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/satelliteMapButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1" android:layout_marginStart="7dp" android:text="Peyk" android:textAllCaps="false" app:cornerRadius="14dp"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/googleMapsButton" android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1.25" android:layout_marginStart="7dp" android:text="Başqa xəritədə" android:textAllCaps="false" app:cornerRadius="14dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

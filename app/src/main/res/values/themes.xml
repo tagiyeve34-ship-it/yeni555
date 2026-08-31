@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.AileNezareti" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/teal</item>
+        <item name="colorPrimaryVariant">@color/teal_dark</item>
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/text</item>
+        <item name="colorBackground">@color/bg</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">@color/bg</item>
+    </style>
+</resources>
