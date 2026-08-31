@@ -78,16 +78,26 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    // Giriş uğurlu olan kimi cihazın mövcud FCM tokenini serverə bağlayır
+    // Giriş uğurlu olan kimi cihazın mövcud FCM tokenini serverə bağlayır.
+    // Firebase konfiqurasiyası (google-services.json) hələ əlavə olunmayıbsa,
+    // FirebaseMessaging.getInstance() İSTİSNA ATIR — bu try-catch olmadan
+    // tətbiq giriş elə bu anda çökürdü. İndi problemsiz keçilir, sadəcə
+    // push bildirişi aktiv olmur (Firebase əlavə olunanda özü işə düşəcək).
     private fun registerFcmToken() {
-        com.google.firebase.messaging.FirebaseMessaging.getInstance().token.addOnSuccessListener { token ->
-            CoroutineScope(Dispatchers.IO).launch {
-                try {
-                    ApiClient.get(this@LoginActivity).registerPushToken(
-                        com.ailenezareti.panelapp.model.PushTokenRequest(token)
-                    )
-                } catch (e: Exception) { /* problem olsa da giriş prosesini bloklamasın */ }
-            }
+        try {
+            com.google.firebase.messaging.FirebaseMessaging.getInstance().token.addOnSuccessListener { token ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        ApiClient.get(this@LoginActivity).registerPushToken(
+                            com.ailenezareti.panelapp.model.PushTokenRequest(token)
+                        )
+                    } catch (e: Exception) { /* problem olsa da giriş prosesini bloklamasın */ }
+                }
+            }?.addOnFailureListener { /* Firebase hazır deyilsə səssizcə keç */ }
+        } catch (e: Throwable) {
+            // Firebase ümumiyyətlə işə düşməyibsə (google-services.json yoxdur,
+            // "Default FirebaseApp is not initialized" və s.) buraya düşür.
+            // Bu funksiya heç vaxt giriş prosesini poza bilməz.
         }
     }
 }
